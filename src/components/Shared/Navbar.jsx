@@ -87,7 +87,7 @@ const Navbar = () => {
                   </span>
                 </li>
                 <li className="text-white hover:text-yellow-500">
-                  <ActiveLink to="/home">Home</ActiveLink>
+                  <ActiveLink to="/">Home</ActiveLink>
                 </li>
                 <li className="text-white hover:text-yellow-500">
                   <ActiveLink to="/chefs">Chefs</ActiveLink>

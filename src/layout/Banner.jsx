@@ -12,7 +12,7 @@ import FeaturedChef from "../components/FeaturedChef";
 const Banner = () => {
   const [deviceWith, setDeviceWith] = useState(3);
   const chef = useLoaderData();
-  console.log(chef);
+  // console.log(chef);
   useEffect(() => {
     let width = window.innerWidth;
     if (width < 600) {
