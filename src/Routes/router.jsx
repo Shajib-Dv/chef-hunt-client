@@ -6,6 +6,7 @@ import Navbar from "../components/Shared/Navbar";
 import Home from "../layout/Home";
 import Banner from "../layout/Banner";
 import Recipes from "../components/Recipes";
+import NotFoundPage from "../components/NotFoundPage";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
             "https://chef-hunt-server-shajib-dv.vercel.app/chefs/filter/10"
           ),
       },
+      {
+        path: "/chefs",
+        element: "",
+      },
     ],
   },
   {
@@ -27,6 +32,10 @@ const router = createBrowserRouter([
     element: <Recipes />,
     loader: ({ params }) =>
       fetch(`https://chef-hunt-server-shajib-dv.vercel.app/chefs/${params.id}`),
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
   },
 ]);
 
