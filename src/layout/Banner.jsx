@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -9,12 +9,19 @@ import { Parallax, Pagination, Navigation } from "swiper";
 import { useLoaderData } from "react-router-dom";
 
 const Banner = () => {
+  const [deviceWith, setDeviceWith] = useState(3);
   const chef = useLoaderData();
   console.log(chef);
+  useEffect(() => {
+    let width = window.innerWidth;
+    if (width < 600) {
+      setDeviceWith(1);
+    }
+  }, [window.innerWidth]);
   return (
-    <div className="my-10 mx-10 h-full">
+    <div id="swiper" className="my-10 md:mx-10 md:h-1/2">
       <Swiper
-        slidesPerView={3}
+        slidesPerView={deviceWith}
         spaceBetween={30}
         pagination={{
           clickable: true,
@@ -23,17 +30,24 @@ const Banner = () => {
         loop={true}
         autoplay
         navigation
-        className="h-1/3"
+        // onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={(e) => console.log(e)}
       >
         {chef &&
-          chef.map((ch) => (
-            <SwiperSlide>
-              <div className="shadow-2xl rounded-md bg-yellow-200">
+          chef.map((ch, idx) => (
+            <SwiperSlide key={idx}>
+              <div className="relative shadow-2xl md:h-full h-96 rounded-md bg-yellow-200">
                 <img
-                  className="w-full h-full rounded-md border-yellow-400 border-2"
+                  className="w-full h-full md:h-96 rounded-md border-yellow-400 border-2"
                   src={ch.picture}
                   alt="img"
                 />
+                <div className="p-4 backdrop-blur-sm bg-transparent absolute bottom-0 text-center w-full">
+                  <h2 className="text-3xl text-yellow-600  font-bold ">
+                    {ch.chefName}
+                  </h2>
+                  <p className="text-black font-semibold">{ch.origin}</p>
+                </div>
               </div>
             </SwiperSlide>
           ))}
