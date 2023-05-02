@@ -59,6 +59,7 @@ const ChefsRecipes = ({ recipes, cooking }) => {
             </div>
           </div>
           <div className="list-disc">
+            <p className="text-sm text-yellow-500 font-bold">Ingredients:</p>
             {ingredients?.map((ingr, idx) => (
               <li key={idx}>{ingr}</li>
             ))}
@@ -77,7 +78,7 @@ const ChefsRecipes = ({ recipes, cooking }) => {
         <button
           disabled={favorite}
           onClick={() => handleFavorite(id)}
-          className="button w-full cursor-pointer items-center justify-between"
+          className="button w-full disabled:bg-gray-500 cursor-pointer items-center justify-between"
         >
           <p className="">Add To favorite</p> <FaBookmark />
         </button>
