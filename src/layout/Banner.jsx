@@ -12,7 +12,7 @@ import FeaturedChef from "../components/FeaturedChef";
 const Banner = () => {
   const [deviceWith, setDeviceWith] = useState(3);
   const chef = useLoaderData();
-  // console.log(chef);
+  console.log(chef);
   useEffect(() => {
     let width = window.innerWidth;
     if (width < 600) {
@@ -62,7 +62,7 @@ const Banner = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:mx-10 mx-4 mb-10">
           {chef &&
             chef
-              .slice(0, 6)
+              .slice(4, 10)
               .map((ch) => <FeaturedChef key={ch.index} chefs={ch} />)}
         </div>
       </div>
