@@ -31,6 +31,10 @@ const router = createBrowserRouter([
             `https://chef-hunt-server-shajib-dv.vercel.app/origins/${params.country}`
           ),
       },
+      {
+        path: "/chefs",
+        element: <ShowChefs />,
+      },
     ],
   },
   {

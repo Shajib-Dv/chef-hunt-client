@@ -19,7 +19,7 @@ const ChefDetails = ({ chef }) => {
   return (
     <>
       {chef && (
-        <div className="card card-compact h-1/2 w-full bg-base-100 shadow-xl">
+        <div className="card  card-compact md:h-1/2 lg:h-[600px] w-full bg-base-100 shadow-xl">
           <figure>
             <img className="w-full h-64 object-cover" src={picture} />
           </figure>

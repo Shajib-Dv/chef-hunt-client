@@ -1,8 +1,8 @@
 /** @format */
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import ActiveLink from "../ActiveLink";
 
@@ -10,10 +10,20 @@ const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [search, setSearch] = useState("");
   const user = true;
-  console.log(search);
+
+  useEffect(() => {
+    const btn = document.getElementById("search-btn");
+    document.getElementById("search").addEventListener("keyup", (e) => {
+      if (e.key === "Enter") {
+        btn.click();
+        e.target.value = "";
+      }
+    });
+  }, []);
+
   return (
     <>
-      <nav className="w-full backdrop-blur-md bg-transparent md:pt-10">
+      <nav className="w-full backdrop-blur-md bg-transparent md:pt-10 sticky top-0 z-10">
         <div className="justify-between px-4 mx-auto md:pb-6 lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -80,14 +90,16 @@ const Navbar = () => {
               <ul className="items-center font-bold  justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                 <li className="relative flex items-center ">
                   <input
+                    id="search"
                     type="text"
                     placeholder="Search your destination"
-                    className="search"
+                    className="search w-full"
                     onChange={(e) => setSearch(e.target.value)}
                   />
                   <Link
+                    id="search-btn"
                     to={`/origin/chefs/${search}`}
-                    className="absolute right-5"
+                    className="absolute right-16 h-full w-12 flex items-center justify-center md:right-5"
                   >
                     <FaSearch />
                   </Link>

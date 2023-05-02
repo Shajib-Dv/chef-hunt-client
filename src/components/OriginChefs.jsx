@@ -6,7 +6,7 @@ import FeaturedChef from "./FeaturedChef";
 
 const OriginChefs = () => {
   const chefs = useLoaderData();
-  console.log(chefs);
+  //   console.log(chefs);
   return (
     <>
       {chefs.length === 0 && (
