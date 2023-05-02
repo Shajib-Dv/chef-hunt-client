@@ -9,8 +9,13 @@ body {
   background-image: url(/public/banner.jpg);
   background-attachment: fixed;
   background-size: cover;
-  height: 100vh;
+  height: auto;
   font-family: "MuseoModerno", cursive;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .search {
