@@ -7,6 +7,8 @@ import Home from "../layout/Home";
 import Banner from "../layout/Banner";
 import Recipes from "../components/Recipes";
 import NotFoundPage from "../components/NotFoundPage";
+import ShowChefs from "../components/ShowChefs";
+import OriginChefs from "../components/OriginChefs";
 
 const router = createBrowserRouter([
   {
@@ -22,8 +24,12 @@ const router = createBrowserRouter([
           ),
       },
       {
-        path: "/chefs",
-        element: "",
+        path: "/origin/chefs/:country",
+        element: <OriginChefs />,
+        loader: ({ params }) =>
+          fetch(
+            `https://chef-hunt-server-shajib-dv.vercel.app/origins/${params.country}`
+          ),
       },
     ],
   },

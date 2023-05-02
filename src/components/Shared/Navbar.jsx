@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
@@ -8,7 +8,9 @@ import ActiveLink from "../ActiveLink";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
+  const [search, setSearch] = useState("");
   const user = true;
+  console.log(search);
   return (
     <>
       <nav className="w-full backdrop-blur-md bg-transparent md:pt-10">
@@ -81,10 +83,14 @@ const Navbar = () => {
                     type="text"
                     placeholder="Search your destination"
                     className="search"
+                    onChange={(e) => setSearch(e.target.value)}
                   />
-                  <span className="absolute right-5">
+                  <Link
+                    to={`/origin/chefs/${search}`}
+                    className="absolute right-5"
+                  >
                     <FaSearch />
-                  </span>
+                  </Link>
                 </li>
                 <li className="text-white hover:text-yellow-500">
                   <ActiveLink to="/">Home</ActiveLink>
