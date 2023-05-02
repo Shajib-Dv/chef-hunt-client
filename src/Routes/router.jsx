@@ -9,6 +9,7 @@ import Recipes from "../components/Recipes";
 import NotFoundPage from "../components/NotFoundPage";
 import ShowChefs from "../components/ShowChefs";
 import OriginChefs from "../components/OriginChefs";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/recipes/:id",
-    element: <Recipes />,
+    element: (
+      <PrivateRoute>
+        <Recipes />
+      </PrivateRoute>
+    ),
     loader: ({ params }) =>
       fetch(`https://chef-hunt-server-shajib-dv.vercel.app/chefs/${params.id}`),
   },
