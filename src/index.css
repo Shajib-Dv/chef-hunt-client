@@ -20,6 +20,3 @@ body {
 .button {
   @apply flex items-center  bg-yellow-500 px-4 py-2 font-bold text-black rounded-md;
 }
-.user-img {
-  @apply inline-block w-full px-4 py-2 text-center text-gray-800 bg-white rounded-md shadow hover:bg-gray-100;
-}
