@@ -3,3 +3,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=EB+Garamond:wght@400;500;600;700&family=Manrope:wght@200;300;400;500;600;700&family=Montserrat:wght@300;400;500&family=MuseoModerno:wght@100;200;300;400;500;600;700;800&family=Open+Sans&family=Poppins:wght@500;600;700&display=swap");
+
+body {
+  background-image: url(/public/banner.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+  font-family: "MuseoModerno", cursive;
+}
+
+.search {
+  @apply backdrop-blur-sm bg-transparent text-white  font-semibold outline-none border-2 rounded-md px-3 py-2  w-full max-w-xs;
+}
+
+.button {
+  @apply flex items-center  bg-yellow-500 px-4 py-2 font-bold text-black rounded-md;
+}
+.user-img {
+  @apply inline-block w-full px-4 py-2 text-center text-gray-800 bg-white rounded-md shadow hover:bg-gray-100;
+}
