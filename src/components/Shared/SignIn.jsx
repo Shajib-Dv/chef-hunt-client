@@ -2,7 +2,7 @@
 
 import React, { useContext, useState } from "react";
 import Navbar from "./Navbar";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGooglePlusSquare, FaGithubSquare } from "react-icons/fa";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
@@ -10,6 +10,8 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { userSignIn, googleSignIn, gitHubSignIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -41,10 +43,14 @@ const SignIn = () => {
   return (
     <>
       <Navbar />
-      <div className="flex justify-center items-center h-screen backdrop-blur-md bg-transparent">
+
+      <div className="flex flex-col mt-10 md:mt-0 md:justify-center md:items-center  h-screen backdrop-blur-md bg-transparent">
+        <h2 className="text-3xl pb-4 text-yellow-500 text-center font-bold">
+          Please Sign in
+        </h2>
         <form
           onSubmit={handleSubmit}
-          className="bg-white w-1/2 shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          className="bg-white md:w-1/2 shadow-md rounded px-8 pt-6 pb-8 mb-4"
         >
           <div className="mb-4">
             <label
@@ -100,12 +106,12 @@ const SignIn = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between">
-            <button className="button" type="submit">
+          <div className="md:flex  items-center justify-between">
+            <button className="button w-1/2 justify-center" type="submit">
               Sign In
             </button>
             <div>
-              <p>
+              <p className="font-semibold pt-2 md:pt-0">
                 New to Chef-hunt ! Please{" "}
                 <Link
                   to="/signup"
@@ -117,7 +123,7 @@ const SignIn = () => {
             </div>
           </div>
           {/* google and github sign in */}
-          <hr className="my-4 border-yellow-500 border-2" />
+          <hr className="my-4  border-sky-100 border" />
           <div className="pt-4 space-y-2">
             <button
               onClick={signInWithGoogle}

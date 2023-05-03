@@ -2,7 +2,7 @@
 
 import React, { useContext, useState } from "react";
 import Navbar from "./Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const SignUp = () => {
@@ -13,18 +13,20 @@ const SignUp = () => {
   const [passwordError, setPasswordError] = useState("");
   const [imgLink, setImgLink] = useState("");
   const { userSignUp } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     setPasswordError("");
     event.preventDefault();
     userSignUp(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         setFirstName("");
         setLastName("");
         setImgLink("");
         setEmail("");
         setPassword("");
+        navigate("/");
       })
       .catch((error) => setPasswordError(error.message));
   };
@@ -32,7 +34,10 @@ const SignUp = () => {
   return (
     <>
       <Navbar />
-      <div className="flex justify-center items-center h-screen bg-transparent backdrop-blur-md">
+      <div className="flex flex-col justify-center items-center h-screen bg-transparent backdrop-blur-md">
+        <h2 className="text-3xl pb-4 text-yellow-500 text-center font-bold">
+          Please Sign up
+        </h2>
         <form
           onSubmit={handleSubmit}
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
@@ -126,12 +131,12 @@ const SignUp = () => {
               <p className="pt-2 text-red-600">{passwordError}</p>
             )}
           </div>
-          <div className="flex items-center justify-between">
+          <div className="md:flex items-center justify-between">
             <button className="button" type="submit">
               Register
             </button>
             <div>
-              <p>
+              <p className="font-semibold pt-2 md:pt-0">
                 Already have an account ! Please{" "}
                 <Link
                   to="/signin"
