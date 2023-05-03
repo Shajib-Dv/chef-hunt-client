@@ -36,3 +36,7 @@ body {
 .input-txt {
   @apply shadow appearance-none border rounded w-full py-2 px-3 text-white bg-[#111827] leading-tight;
 }
+
+.link-txt {
+  @apply cursor-pointer hover:underline hover:text-yellow-500;
+}

@@ -137,7 +137,7 @@ const SignIn = () => {
           <div className="pt-4 space-y-2">
             <button
               onClick={signInWithGoogle}
-              className=" button justify-center gap-4 w-full"
+              className="button justify-center gap-4 w-full"
             >
               <span className="text-2xl">
                 <FaGooglePlusSquare />
@@ -146,7 +146,7 @@ const SignIn = () => {
             </button>
             <button
               onClick={signInWithGithub}
-              className=" button justify-center gap-4 w-full"
+              className="button justify-center gap-4 w-full"
             >
               <span className="text-2xl">
                 <FaGithubSquare />

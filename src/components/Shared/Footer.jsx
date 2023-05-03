@@ -24,10 +24,10 @@ const Footer = () => {
             Features
           </h3>
           <ul className="grid gap-3 text-gray-400">
-            <li>About Us</li>
-            <li>Work</li>
-            <li>Latest News</li>
-            <li>Careers</li>
+            <li className="link-txt">About Us</li>
+            <li className="link-txt">Work</li>
+            <li className="link-txt">Latest News</li>
+            <li className="link-txt">Careers</li>
           </ul>
         </div>
         <div>
@@ -35,10 +35,10 @@ const Footer = () => {
             Product
           </h3>
           <ul className="grid gap-3 text-gray-400">
-            <li>Restaurant</li>
-            <li>Free shipping</li>
-            <li>Customers</li>
-            <li>Integrations</li>
+            <li className="link-txt">Restaurant</li>
+            <li className="link-txt">Free shipping</li>
+            <li className="link-txt">Customers</li>
+            <li className="link-txt">Integrations</li>
           </ul>
         </div>
         <div>
@@ -46,10 +46,10 @@ const Footer = () => {
             Support
           </h3>
           <ul className="grid gap-3 text-gray-400">
-            <li>Dish serve</li>
-            <li>Sales</li>
-            <li>Marketing</li>
-            <li>Donate</li>
+            <li className="link-txt">Dish serve</li>
+            <li className="link-txt">Sales</li>
+            <li className="link-txt">Marketing</li>
+            <li className="link-txt">Donate</li>
           </ul>
         </div>
         <div>
@@ -57,8 +57,8 @@ const Footer = () => {
             Contact
           </h3>
           <ul className="grid gap-3 text-gray-400">
-            <li>524 Norway , NYC</li>
-            <li>+1 0123 - 978 - 9999</li>
+            <li className="link-txt">524 Norway , NYC</li>
+            <li className="link-txt">+1 0123 - 978 - 9999</li>
           </ul>
         </div>
       </div>

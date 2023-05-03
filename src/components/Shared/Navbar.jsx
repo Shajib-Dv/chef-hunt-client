@@ -135,15 +135,12 @@ const Navbar = () => {
                 {user ? (
                   <button
                     onClick={() => logOut()}
-                    className="btn btn-warning w-full"
+                    className="btn text-black btn-warning w-full"
                   >
                     Log out
                   </button>
                 ) : (
-                  <Link
-                    to="/signin"
-                    className="inline-block w-full px-4 py-2 text-center text-black hover:text-white bg-yellow-500 rounded-md shadow hover:bg-gray-800"
-                  >
+                  <Link to="/signin" className="button justify-center w-full">
                     Sign in
                   </Link>
                 )}
@@ -180,10 +177,7 @@ const Navbar = () => {
                 Log out
               </button>
             ) : (
-              <Link
-                to="/signin"
-                className="px-4 py-2 text-black hover:text-white bg-yellow-500 rounded-md shadow hover:bg-gray-800"
-              >
+              <Link to="/signin" className="button justify-center">
                 Sign in
               </Link>
             )}
