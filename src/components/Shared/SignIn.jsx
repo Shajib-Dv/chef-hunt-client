@@ -9,7 +9,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { userSignIn } = useContext(AuthContext);
+  const { userSignIn, googleSignIn } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,6 +18,14 @@ const SignIn = () => {
         console.log(result.user);
         setEmail("");
         setPassword("");
+      })
+      .catch((error) => console.log(error.message));
+  };
+
+  const signInWithGoogle = () => {
+    googleSignIn()
+      .then((result) => {
+        console.log(result.user);
       })
       .catch((error) => console.log(error.message));
   };
@@ -103,7 +111,10 @@ const SignIn = () => {
           {/* google and github sign in */}
           <hr className="my-4 border-yellow-500 border-2" />
           <div className="pt-4 space-y-2">
-            <button className=" button justify-center gap-4 w-full">
+            <button
+              onClick={signInWithGoogle}
+              className=" button justify-center gap-4 w-full"
+            >
               <span className="text-2xl">
                 <FaGooglePlusSquare />
               </span>
