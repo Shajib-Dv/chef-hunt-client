@@ -1,10 +1,16 @@
 /** @format */
 
 import React from "react";
+import { BsFillFilePdfFill } from "react-icons/bs";
 
 const Blog = () => {
   return (
     <>
+      <div className="flex justify-center my-6">
+        <button className="btn button items-center justify-center gap-2 text-2xl">
+          Save as pdf <BsFillFilePdfFill />
+        </button>
+      </div>
       <div className="blog space-y-2">
         <h1 className="blog-title">
           Differences between uncontrolled and controlled components ?

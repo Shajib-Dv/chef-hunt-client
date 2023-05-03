@@ -13,6 +13,7 @@ import PrivateRoute from "./PrivateRoute";
 import SignIn from "../components/Shared/SignIn";
 import SignUp from "../components/Shared/SignUp";
 import Blog from "../components/Blog";
+import Contact from "../components/Contact";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
     ],
   },
