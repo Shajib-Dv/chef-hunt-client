@@ -10,7 +10,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   height: auto;
-  font-family: "MuseoModerno", cursive;
+  font-family: "Poppins", sans-serif;
 }
 * {
   box-sizing: border-box;

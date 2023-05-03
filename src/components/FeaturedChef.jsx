@@ -4,6 +4,7 @@ import React from "react";
 import { BsFillTrophyFill, BsFillSuitHeartFill } from "react-icons/bs";
 import { BiDish, BiGlasses } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazy-load";
 
 const FeaturedChef = ({ chefs }) => {
   const {
@@ -22,7 +23,9 @@ const FeaturedChef = ({ chefs }) => {
       <div className="card card-compact w-full bg-base-100 shadow-xl">
         <div className="avatar flex justify-center">
           <div className="w-64 rounded-full">
-            <img src={picture} />
+            <LazyLoad>
+              <img src={picture} />
+            </LazyLoad>
           </div>
         </div>
         <div className="card-body p-0">

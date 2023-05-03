@@ -9,6 +9,7 @@ import { Parallax, Pagination, Navigation, Autoplay } from "swiper";
 import { useLoaderData } from "react-router-dom";
 import FeaturedChef from "../components/FeaturedChef";
 import SubscribeSection from "../components/SubscribeSection";
+import LazyLoad from "react-lazy-load";
 
 const Banner = () => {
   const [deviceWith, setDeviceWith] = useState(3);
@@ -40,11 +41,13 @@ const Banner = () => {
             chef.map((ch, idx) => (
               <SwiperSlide key={idx}>
                 <div className="relative shadow-2xl md:h-full h-96 rounded-md bg-yellow-200">
-                  <img
-                    className="w-full h-full md:h-96 rounded-md border-yellow-400 border-2"
-                    src={ch.picture}
-                    alt="img"
-                  />
+                  <LazyLoad>
+                    <img
+                      className="w-full h-full md:h-96 rounded-md border-yellow-400 border-2"
+                      src={ch.picture}
+                      alt="img"
+                    />
+                  </LazyLoad>
                   <div className="p-4 backdrop-blur-sm bg-transparent absolute bottom-0 text-center w-full">
                     <h2 className="text-3xl text-yellow-600  font-bold ">
                       {ch.chefName}
@@ -68,7 +71,7 @@ const Banner = () => {
         </div>
       </div>
       {/* bonus section */}
-      <div className="mx-10 my-10 grid grid-cols-1 ">
+      <div className="md:mx-10 my-10 grid grid-cols-1 ">
         <div className="p-2 backdrop-blur-sm rounded-sm">
           <h1 className="text-3xl text-yellow-500 font-bold pb-4">
             Connected With Youtube

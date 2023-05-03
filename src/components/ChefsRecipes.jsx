@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import LazyLoad from "react-lazy-load";
 
 const cooking = [
   "Sautéing is a cooking method that involves quickly cooking food in a small amount of oil or fat over high heat. This method is often used for vegetables, meats, and seafood and is a great way to add flavor and texture to your dishes.To sauté, start by heating a small amount of oil or fat in a pan over high heat. Once the oil is hot, add your ingredients to the pan and stir or toss them continuously. The high heat will cause the food to brown quickly and develop a rich flavor.When sautéing vegetables, it's important to cut them into uniform pieces so that they cook evenly. For meats and seafood, it's best to pat them dry with a paper   towel before adding them to the pan to ensure that they sear properly.Sautéing is a versatile cooking method that can be used for a variety of dishes,from stir-fries to pan-seared steaks. With a little practice, you can master this technique and elevate your cooking to the next level",
@@ -71,7 +72,9 @@ const ChefsRecipes = ({ recipes }) => {
     <>
       <div className="card card-compact w-full bg-base-100 shadow-xl">
         <figure>
-          <img className="w-full h-64 object-cover" src={img} />
+          <LazyLoad>
+            <img className="w-full h-64 object-cover" src={img} />
+          </LazyLoad>
         </figure>
         <div className="card-body p-0">
           <h2 className="card-title text-yellow-500">{name}</h2>
