@@ -13,13 +13,18 @@ const Recipes = () => {
   return (
     <>
       <Navbar />
-      <div className="grid md:grid-cols-2 grid-cols-1 gap-10 md:mx-10 my-10 md:min-h-[calc(100vh-150px)] h-auto bg-transparent">
+      <div className="grid  grid-cols-1 gap-5 md:mx-10 my-10 md:min-h-[calc(100vh-150px)] h-auto bg-transparent">
         <div>{chef && <ChefDetails chef={chef} />}</div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {chef &&
-            chef?.recipes?.map((cf) => (
-              <ChefsRecipes key={cf.id} recipes={cf} cooking={chef.bio} />
-            ))}
+        <div>
+          <h1 className="text-5xl backdrop-blur-sm text-center text-yellow-500 font-bold py-6">
+            Recipes Form {chef.chefName}
+          </h1>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+            {chef &&
+              chef?.recipes?.map((cf) => (
+                <ChefsRecipes key={cf.id} recipes={cf} cooking={chef.bio} />
+              ))}
+          </div>
         </div>
       </div>
       <Footer />

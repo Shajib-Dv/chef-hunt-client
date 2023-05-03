@@ -20,9 +20,11 @@ const FeaturedChef = ({ chefs }) => {
   return (
     <>
       <div className="card card-compact w-full bg-base-100 shadow-xl">
-        <figure>
-          <img className="w-full h-64 object-cover" src={picture} />
-        </figure>
+        <div className="avatar flex justify-center">
+          <div className="w-64 rounded-full">
+            <img src={picture} />
+          </div>
+        </div>
         <div className="card-body p-0">
           <h2 className="card-title text-yellow-500">
             {chefName} ({origin})
@@ -49,7 +51,7 @@ const FeaturedChef = ({ chefs }) => {
               </span>
             </div>
           </div>
-          <p>{bio}</p>
+          <p>{bio.slice(0, 100)}...</p>
         </div>
         <div>
           <Link to={`/recipes/${_id}`} className="button justify-center gap-2">

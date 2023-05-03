@@ -8,6 +8,7 @@ import "swiper/css/navigation";
 import { Parallax, Pagination, Navigation, Autoplay } from "swiper";
 import { useLoaderData } from "react-router-dom";
 import FeaturedChef from "../components/FeaturedChef";
+import SubscribeSection from "../components/SubscribeSection";
 
 const Banner = () => {
   const [deviceWith, setDeviceWith] = useState(3);
@@ -62,13 +63,13 @@ const Banner = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:mx-10 mx-4 mb-10">
           {chef &&
             chef
-              .slice(4, 10)
+              .slice(0, 6)
               .map((ch) => <FeaturedChef key={ch.index} chefs={ch} />)}
         </div>
       </div>
       {/* bonus section */}
-      <div className="mx-10 my-10 grid grid-cols-1 md:grid-cols-2  ">
-        <div className="md:p-10 backdrop-blur-sm rounded-sm">
+      <div className="mx-10 my-10 grid grid-cols-1 ">
+        <div className="p-2 backdrop-blur-sm rounded-sm">
           <h1 className="text-3xl text-yellow-500 font-bold pb-4">
             Connected With Youtube
           </h1>
@@ -82,17 +83,11 @@ const Banner = () => {
             allowFullScreen
           ></iframe>
         </div>
-        <div className="md:p-10 backdrop-blur-sm rounded-sm">
+        <div className="overflow-hidden p-2 backdrop-blur-sm rounded-sm">
           <h1 className="text-3xl text-yellow-500 font-bold pb-4">
-            Please Visit Our Home
+            Don't miss the latest updates
           </h1>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3359041.068157855!2d87.35911380870367!3d22.652762925866078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1683052613812!5m2!1sen!2sbd"
-            width="100%"
-            height="480"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+          <SubscribeSection />
         </div>
       </div>
     </>

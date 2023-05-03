@@ -11,6 +11,7 @@ import ShowChefs from "../components/ShowChefs";
 import OriginChefs from "../components/OriginChefs";
 import PrivateRoute from "./PrivateRoute";
 import SignIn from "../components/Shared/SignIn";
+import SignUp from "../components/Shared/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
         element: <Banner />,
         loader: () =>
           fetch(
-            "https://chef-hunt-server-shajib-dv.vercel.app/chefs/filter/10"
+            "https://chef-hunt-server-shajib-dv.vercel.app/origins/Srilankan"
           ),
       },
       {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
   {
     path: "/signin",
     element: <SignIn />,
+  },
+  {
+    path: "/signup",
+    element: <SignUp />,
   },
   {
     path: "*",

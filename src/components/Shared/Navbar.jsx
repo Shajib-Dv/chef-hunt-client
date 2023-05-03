@@ -1,15 +1,16 @@
 /** @format */
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link, Navigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import ActiveLink from "../ActiveLink";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [search, setSearch] = useState("");
-  const user = false;
+  const { user, logOut } = useContext(AuthContext);
 
   useEffect(() => {
     const btn = document.getElementById("search-btn");
@@ -119,7 +120,12 @@ const Navbar = () => {
               </ul>
               <div className="mt-3 space-y-2 lg:hidden md:hidden">
                 {user ? (
-                  <button className="btn btn-warning w-full">Log out</button>
+                  <button
+                    onClick={() => logOut()}
+                    className="btn btn-warning w-full"
+                  >
+                    Log out
+                  </button>
                 ) : (
                   <Link
                     to="/signin"
@@ -140,7 +146,9 @@ const Navbar = () => {
               </div>
             )}
             {user ? (
-              <button className="btn btn-warning">Log out</button>
+              <button onClick={() => logOut()} className="btn btn-warning">
+                Log out
+              </button>
             ) : (
               <Link
                 to="/signin"

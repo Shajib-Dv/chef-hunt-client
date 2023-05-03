@@ -19,10 +19,12 @@ const ChefDetails = ({ chef }) => {
   return (
     <>
       {chef && (
-        <div className="card  card-compact md:h-1/2 lg:h-[600px] w-full bg-base-100 shadow-xl">
-          <figure>
-            <img className="w-full h-64 object-cover" src={picture} />
-          </figure>
+        <div className="card  card-compact md:h-1/2 lg:h-[600px] md:w-1/2 mx-auto bg-base-100 shadow-xl">
+          <div className="avatar flex justify-center">
+            <div className="w-64 rounded-full">
+              <img src={picture} />
+            </div>
+          </div>
           <div className="card-body p-0">
             <h2 className="card-title text-yellow-500">
               {chefName} ({origin})
@@ -45,7 +47,7 @@ const ChefDetails = ({ chef }) => {
                   <span className="text-red-500">
                     <BsFillSuitHeartFill />
                   </span>
-                  <p>{like} likes</p>
+                  <p>{Math.round(Math.random() * 300)} likes</p>
                 </span>
               </div>
             </div>

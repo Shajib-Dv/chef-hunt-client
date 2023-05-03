@@ -1,16 +1,25 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
+import { FaGooglePlusSquare, FaGithubSquare } from "react-icons/fa";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [imgLink, setImgLink] = useState("");
+  const { userSignIn } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`Email: ${email}, Password: ${password}`);
+    userSignIn(email, password)
+      .then((result) => {
+        console.log(result.user);
+        setEmail("");
+        setPassword("");
+      })
+      .catch((error) => console.log(error.message));
   };
 
   return (
@@ -34,6 +43,7 @@ const SignIn = () => {
               type="email"
               placeholder="Email"
               value={email}
+              required
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
@@ -52,24 +62,8 @@ const SignIn = () => {
               type="password"
               placeholder="Password"
               value={password}
+              required
               onChange={(e) => setPassword(e.target.value)}
-            />
-            {<p className="pt-2 text-red-600">err</p>}
-          </div>
-          <div className="mb-6">
-            <label
-              className="block text-gray-700 font-bold mb-2"
-              htmlFor="password"
-            >
-              Photo-url
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="img-url"
-              type="text"
-              placeholder="Photo url"
-              value={imgLink}
-              onChange={(e) => setImgLink(e.target.value)}
             />
           </div>
 
@@ -93,6 +87,33 @@ const SignIn = () => {
           <div className="flex items-center justify-between">
             <button className="button" type="submit">
               Sign In
+            </button>
+            <div>
+              <p>
+                New to Chef-hunt ! Please{" "}
+                <Link
+                  to="/signup"
+                  className="btn-link cursor-pointer text-green-700 font-semibold"
+                >
+                  Sign up
+                </Link>
+              </p>
+            </div>
+          </div>
+          {/* google and github sign in */}
+          <hr className="my-4 border-yellow-500 border-2" />
+          <div className="pt-4 space-y-2">
+            <button className=" button justify-center gap-4 w-full">
+              <span className="text-2xl">
+                <FaGooglePlusSquare />
+              </span>
+              Sign in with google
+            </button>
+            <button className=" button justify-center gap-4 w-full">
+              <span className="text-2xl">
+                <FaGithubSquare />
+              </span>
+              Sign in with github
             </button>
           </div>
         </form>
