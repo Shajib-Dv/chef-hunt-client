@@ -9,7 +9,7 @@ import ActiveLink from "../ActiveLink";
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [search, setSearch] = useState("");
-  const user = true;
+  const user = false;
 
   useEffect(() => {
     const btn = document.getElementById("search-btn");

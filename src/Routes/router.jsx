@@ -10,6 +10,7 @@ import NotFoundPage from "../components/NotFoundPage";
 import ShowChefs from "../components/ShowChefs";
 import OriginChefs from "../components/OriginChefs";
 import PrivateRoute from "./PrivateRoute";
+import SignIn from "../components/Shared/SignIn";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
     ),
     loader: ({ params }) =>
       fetch(`https://chef-hunt-server-shajib-dv.vercel.app/chefs/${params.id}`),
+  },
+  {
+    path: "/signin",
+    element: <SignIn />,
   },
   {
     path: "*",
