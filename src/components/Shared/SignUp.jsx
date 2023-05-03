@@ -12,8 +12,8 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [imgLink, setImgLink] = useState("");
-  const { userSignUp } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const { userSignUp, navigate } = useContext(AuthContext);
+  const navigator = useNavigate();
 
   const handleSubmit = (event) => {
     setPasswordError("");
@@ -26,7 +26,7 @@ const SignUp = () => {
         setImgLink("");
         setEmail("");
         setPassword("");
-        navigate("/");
+        navigator(navigate || "/");
       })
       .catch((error) => setPasswordError(error.message));
   };

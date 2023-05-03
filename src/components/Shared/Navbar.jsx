@@ -11,7 +11,7 @@ const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [search, setSearch] = useState("");
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
   useEffect(() => {
     const btn = document.getElementById("search-btn");
     document.getElementById("search").addEventListener("keyup", (e) => {

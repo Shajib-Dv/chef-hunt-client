@@ -9,9 +9,12 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { userSignIn, googleSignIn, gitHubSignIn } = useContext(AuthContext);
+  const { userSignIn, googleSignIn, gitHubSignIn, setNavigate } =
+    useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
+
+  let from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,6 +23,7 @@ const SignIn = () => {
         console.log(result.user);
         setEmail("");
         setPassword("");
+        navigate(from);
       })
       .catch((error) => console.log(error.message));
   };
@@ -27,7 +31,8 @@ const SignIn = () => {
   const signInWithGoogle = () => {
     googleSignIn()
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
+        navigate(from);
       })
       .catch((error) => console.log(error.message));
   };
@@ -35,7 +40,8 @@ const SignIn = () => {
   const signInWithGithub = () => {
     gitHubSignIn()
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
+        navigate(from);
       })
       .catch((error) => console.log(error.message));
   };
@@ -114,6 +120,7 @@ const SignIn = () => {
               <p className="font-semibold pt-2 md:pt-0">
                 New to Chef-hunt ! Please{" "}
                 <Link
+                  onClick={() => setNavigate(from)}
                   to="/signup"
                   className="btn-link cursor-pointer text-green-700 font-semibold"
                 >
