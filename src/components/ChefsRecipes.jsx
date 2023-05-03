@@ -11,8 +11,47 @@ import {
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-const ChefsRecipes = ({ recipes, cooking }) => {
-  const { id, img, name, ingredients } = recipes;
+const cooking = [
+  "Sautéing is a cooking method that involves quickly cooking food in a small amount of oil or fat over high heat. This method is often used for vegetables, meats, and seafood and is a great way to add flavor and texture to your dishes.To sauté, start by heating a small amount of oil or fat in a pan over high heat. Once the oil is hot, add your ingredients to the pan and stir or toss them continuously. The high heat will cause the food to brown quickly and develop a rich flavor.When sautéing vegetables, it's important to cut them into uniform pieces so that they cook evenly. For meats and seafood, it's best to pat them dry with a paper   towel before adding them to the pan to ensure that they sear properly.Sautéing is a versatile cooking method that can be used for a variety of dishes,from stir-fries to pan-seared steaks. With a little practice, you can master this technique and elevate your cooking to the next level",
+];
+
+const ingredients = [
+  "chicken breast",
+  "garlic",
+  "onion",
+  "bell pepper",
+  "carrots",
+  "celery",
+  "tomatoes",
+  "olive oil",
+  "salt",
+  "pepper",
+  "paprika",
+  "cumin",
+  "dried oregano",
+  "lemon",
+  "parsley",
+  "basil",
+  "parmesan cheese",
+  "butter",
+  "flour",
+  "milk",
+  "eggs",
+  "sugar",
+  "vanilla extract",
+  "baking powder",
+  "baking soda",
+  "all-purpose flour",
+  "chocolate chips",
+  "honey",
+  "soy sauce",
+  "rice vinegar",
+  "sesame oil",
+  "sriracha sauce",
+];
+
+const ChefsRecipes = ({ recipes }) => {
+  const { id, img, name } = recipes;
   const [seeMore, setSeeMore] = useState(false);
   const rate = (Math.random() * 5).toFixed(2);
   const [favorite, setFavorite] = useState(false);
@@ -60,13 +99,19 @@ const ChefsRecipes = ({ recipes, cooking }) => {
           </div>
           <div className="list-disc">
             <p className="text-sm text-yellow-500 font-bold">Ingredients:</p>
-            {ingredients?.map((ingr, idx) => (
-              <li key={idx}>{ingr}</li>
-            ))}
+            {ingredients
+              ?.slice(Math.round(Math.random() * 5), 10)
+              .map((ingr, idx) => (
+                <li key={idx}>{ingr}</li>
+              ))}
           </div>
           <div>
             <span className="text-yellow-500 font-bold">Cooking method: </span>
-            {cooking.slice(0, seeMore ? cooking.length : 50)}
+            The
+            {cooking[0].slice(
+              Math.round(Math.random() * 30),
+              seeMore ? 400 : 100
+            )}
             <span
               onClick={() => setSeeMore(!seeMore)}
               className="cursor-pointer text-xs btn-link"

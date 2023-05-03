@@ -9,6 +9,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const { userSignIn, googleSignIn, gitHubSignIn, setNavigate } =
     useContext(AuthContext);
   const location = useLocation();
@@ -18,6 +19,7 @@ const SignIn = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setError("");
     userSignIn(email, password)
       .then((result) => {
         console.log(result.user);
@@ -25,7 +27,7 @@ const SignIn = () => {
         setPassword("");
         navigate(from);
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => setError(error.message));
   };
 
   const signInWithGoogle = () => {
@@ -93,6 +95,7 @@ const SignIn = () => {
               required
               onChange={(e) => setPassword(e.target.value)}
             />
+            <p className="py-2 text-red-600">{error && error}</p>
           </div>
 
           <div className="flex justify-between items-center pb-4">

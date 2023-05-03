@@ -47,11 +47,22 @@ const FeaturedChef = ({ chefs }) => {
                 <span className="text-red-500">
                   <BsFillSuitHeartFill />
                 </span>
-                <p>{like} likes</p>
+                <p>{Math.round(Math.random() * 300)} likes</p>
               </span>
             </div>
           </div>
-          <p>{bio.slice(0, 100)}...</p>
+          <p>
+            Meet Chef{" "}
+            <span className="text-[1rem] text-yellow-500 font-semibold">
+              {chefName}
+            </span>
+            , a renowned chef and restaurateur who has been a driving force in
+            the culinary world for over two decades. Born in Madrid, Spain,
+            Maria developed a passion for cooking at a young age, inspired by
+            her grandmother's traditional Spanish recipes. After completing
+            culinary school in Madrid, Maria honed her skills working in some of
+            the city's top restaurants...
+          </p>
         </div>
         <div>
           <Link to={`/recipes/${_id}`} className="button justify-center gap-2">

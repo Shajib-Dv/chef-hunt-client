@@ -19,7 +19,7 @@ function SubscribeSection() {
     <div className="bg-gray-100 h-full py-12">
       <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
-          <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
+          <h2 className="text-base text-yellow-500 font-semibold tracking-wide uppercase">
             Subscribe to our newsletter
           </h2>
           <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
@@ -45,7 +45,7 @@ function SubscribeSection() {
           />
           <button
             type="submit"
-            className="mt-3 button w-full px-4 py-3 border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+            className="mt-3 button w-full px-4 py-3 border border-transparent rounded-md shadow-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
           >
             Subscribe
           </button>

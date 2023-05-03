@@ -12,6 +12,7 @@ import OriginChefs from "../components/OriginChefs";
 import PrivateRoute from "./PrivateRoute";
 import SignIn from "../components/Shared/SignIn";
 import SignUp from "../components/Shared/SignUp";
+import Blog from "../components/Blog";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/chefs",
         element: <ShowChefs />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
       },
     ],
   },

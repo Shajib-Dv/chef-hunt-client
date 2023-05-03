@@ -115,7 +115,7 @@ const Navbar = () => {
                     to={`/origin/chefs/${search}`}
                     className="absolute right-16 h-full w-12 flex items-center justify-center md:right-5"
                   >
-                    <FaSearch />
+                    <FaSearch className="text-black" />
                   </Link>
                 </li>
                 <li className="text-white hover:text-yellow-500">

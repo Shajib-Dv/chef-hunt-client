@@ -1,6 +1,7 @@
 /** @format */
 
 import React from "react";
+import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -12,6 +13,11 @@ const Footer = () => {
             Chef hunt is collection of best chefs around the world. We provides
             our best service with our best chefs.
           </p>
+          <div className="flex gap-5 text-2xl text-yellow-500">
+            <FaFacebook className="cursor-pointer " />
+            <FaTwitter className="cursor-pointer " />
+            <FaYoutube className="cursor-pointer " />
+          </div>
         </div>
         <div>
           <h3 className="mb-5 text-yellow-500 text-xl font-semibold">

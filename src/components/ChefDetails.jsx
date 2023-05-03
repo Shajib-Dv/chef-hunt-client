@@ -53,9 +53,21 @@ const ChefDetails = ({ chef }) => {
             </div>
             <p>
               <span className="text-2xl text-yellow-500 font-semibold">
-                Bio :{" "}
-              </span>{" "}
-              {bio}
+                Bio :
+              </span>
+              Meet Chef {chefName} , a talented and creative chef who has made a
+              name for himself in the culinary world. Alex grew up in a family
+              of foodies, and his passion for cooking started at a young age.
+              After completing culinary school, Alex began his career at a
+              popular restaurant in Los Angeles, where he quickly rose through
+              the ranks to become head chef. He has since worked at some of the
+              most prestigious restaurants in the country, earning accolades and
+              recognition for his innovative and delicious dishes. Alex is known
+              for his use of fresh, locally sourced ingredients, and his ability
+              to combine flavors and textures in unique and unexpected ways. He
+              is constantly experimenting with new ingredients and techniques,
+              and his dishes are a reflection of his creativity and passion for
+              cooking.
             </p>
           </div>
         </div>
