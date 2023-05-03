@@ -106,7 +106,7 @@ const Navbar = () => {
                   <input
                     id="search"
                     type="text"
-                    placeholder="Search your destination"
+                    placeholder="Search origin"
                     className="search w-full"
                     onChange={(e) => setSearch(e.target.value)}
                   />

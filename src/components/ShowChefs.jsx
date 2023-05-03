@@ -14,7 +14,7 @@ const ShowChefs = () => {
       .then((data) => setChef(data.data))
       .catch((error) => console.log(error));
   }, []);
-  //   console.log(chefs);
+  // console.log(chefs);
   return (
     <>
       {chefs.length === 0 && (

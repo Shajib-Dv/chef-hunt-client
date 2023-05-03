@@ -22,7 +22,7 @@ const ChefDetails = ({ chef }) => {
       {chef && (
         <div className="card  card-compact md:h-1/2 lg:h-[600px] md:w-1/2 mx-auto bg-base-100 shadow-xl">
           <div className="avatar flex justify-center">
-            <div className="w-64 rounded-full">
+            <div className="w-64 mt-4 rounded-full">
               <LazyLoad>
                 <img src={picture} />
               </LazyLoad>

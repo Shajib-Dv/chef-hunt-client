@@ -1,7 +1,11 @@
 /** @format */
 
 import React from "react";
-import { BsFillTrophyFill, BsFillSuitHeartFill } from "react-icons/bs";
+import {
+  BsFillTrophyFill,
+  BsFillSuitHeartFill,
+  BsFillEmojiHeartEyesFill,
+} from "react-icons/bs";
 import { BiDish, BiGlasses } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import LazyLoad from "react-lazy-load";
@@ -22,7 +26,7 @@ const FeaturedChef = ({ chefs }) => {
     <>
       <div className="card card-compact w-full bg-base-100 shadow-xl">
         <div className="avatar flex justify-center">
-          <div className="w-64 rounded-full">
+          <div className="w-64 mt-4 rounded-full">
             <LazyLoad>
               <img src={picture} />
             </LazyLoad>
@@ -71,7 +75,7 @@ const FeaturedChef = ({ chefs }) => {
           <Link to={`/recipes/${_id}`} className="button justify-center gap-2">
             View recipes
             <span className="text-2xl">
-              <BiGlasses />
+              <BsFillEmojiHeartEyesFill />
             </span>
           </Link>
         </div>
