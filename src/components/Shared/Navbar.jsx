@@ -3,7 +3,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link, Navigate } from "react-router-dom";
-import logo from "../../assets/logo.png";
+import LazyLoad from "react-lazy-load";
 import ActiveLink from "../ActiveLink";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
@@ -35,26 +35,30 @@ const Navbar = () => {
               </Link>
               {user && (
                 <div className="avatar md:hidden">
-                  <div
-                    title={user?.displayName || "name not found"}
-                    className="w-12 rounded-full"
-                  >
-                    {user?.photoURL ? (
-                      <img
-                        src={user?.photoURL}
-                        alt="user"
-                        className="inline-block w-full"
-                      />
-                    ) : (
-                      <div className="avatar w-full h-full placeholder">
-                        <div className="bg-yellow-500 text-neutral-content rounded-full w-16">
-                          <span className="text-2xl">
-                            {user?.email.slice(0, 2)}
-                          </span>
+                  <Link to="/user">
+                    <div
+                      title={user?.displayName || "name not found"}
+                      className="w-12 rounded-full"
+                    >
+                      {user?.photoURL ? (
+                        <LazyLoad>
+                          <img
+                            src={user?.photoURL}
+                            alt="user"
+                            className="inline-block w-full"
+                          />
+                        </LazyLoad>
+                      ) : (
+                        <div className="avatar w-full h-full placeholder">
+                          <div className="bg-yellow-500 text-neutral-content rounded-full w-16">
+                            <span className="text-2xl">
+                              {user?.email.slice(0, 2)}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    )}
-                  </div>
+                      )}
+                    </div>
+                  </Link>
                 </div>
               )}
               <div className="md:hidden">
@@ -150,26 +154,30 @@ const Navbar = () => {
           <div className="hidden space-x-2 md:inline-block">
             {user && (
               <div className="avatar">
-                <div
-                  title={user?.displayName || "name not found"}
-                  className="w-16 rounded-full"
-                >
-                  {user?.photoURL ? (
-                    <img
-                      src={user?.photoURL}
-                      alt="user"
-                      className="inline-block w-full"
-                    />
-                  ) : (
-                    <div className="avatar  placeholder">
-                      <div className="bg-yellow-500 text-neutral-content rounded-full w-16">
-                        <span className="text-2xl">
-                          {user?.email.slice(0, 2)}
-                        </span>
+                <Link to="/user">
+                  <div
+                    title={user?.displayName || "name not found"}
+                    className="w-16 rounded-full"
+                  >
+                    {user?.photoURL ? (
+                      <LazyLoad>
+                        <img
+                          src={user?.photoURL}
+                          alt="user"
+                          className="inline-block w-full"
+                        />
+                      </LazyLoad>
+                    ) : (
+                      <div className="avatar  placeholder">
+                        <div className="bg-yellow-500 text-neutral-content rounded-full w-16">
+                          <span className="text-2xl">
+                            {user?.email.slice(0, 2)}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  )}
-                </div>
+                    )}
+                  </div>
+                </Link>
               </div>
             )}
             {user ? (

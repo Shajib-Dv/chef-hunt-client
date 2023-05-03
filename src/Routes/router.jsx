@@ -14,6 +14,7 @@ import SignIn from "../components/Shared/SignIn";
 import SignUp from "../components/Shared/SignUp";
 import Blog from "../components/Blog";
 import Contact from "../components/Contact";
+import UserDetails from "../components/UserDetails";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/user",
+        element: <UserDetails />,
       },
     ],
   },
