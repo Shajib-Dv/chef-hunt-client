@@ -7,7 +7,7 @@ import LazyLoad from "react-lazy-load";
 
 const UserDetails = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
+
   const lastLog = new Date(parseInt(user?.metadata?.lastLoginAt));
   const createdAt = new Date(parseInt(user?.metadata?.createdAt));
   return (

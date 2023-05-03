@@ -45,7 +45,7 @@ const Navbar = () => {
                           <img
                             src={user?.photoURL}
                             alt="user"
-                            className="inline-block w-full"
+                            className="inline-block w-full rounded-full"
                           />
                         </LazyLoad>
                       ) : (
@@ -164,7 +164,7 @@ const Navbar = () => {
                         <img
                           src={user?.photoURL}
                           alt="user"
-                          className="inline-block w-full"
+                          className="inline-block w-full rounded-full"
                         />
                       </LazyLoad>
                     ) : (
