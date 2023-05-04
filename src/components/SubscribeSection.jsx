@@ -1,9 +1,12 @@
 /** @format */
 
 import React, { useState } from "react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 function SubscribeSection() {
   const [email, setEmail] = useState("");
+  const MySwal = withReactContent(Swal);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -11,8 +14,12 @@ function SubscribeSection() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`Email: ${email} subscribed successfully.`);
-    // add your logic to subscribe the user here
+    setEmail("");
+    MySwal.fire({
+      title: <strong>Well Done</strong>,
+      html: <i>Your Subscription Completed successfully</i>,
+      icon: "success",
+    });
   };
 
   return (

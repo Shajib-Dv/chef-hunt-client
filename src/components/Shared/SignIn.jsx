@@ -52,7 +52,7 @@ const SignIn = () => {
     <>
       <Navbar />
 
-      <div className="flex flex-col mt-10 md:mt-0 md:justify-center md:items-center  h-screen backdrop-blur-md bg-transparent">
+      <div className="flex flex-col mt-10 md:mt-0 md:justify-center md:items-center  h-screen bg-[rgb(0,0,0,0.5)]">
         <h2 className="text-3xl pb-4 text-yellow-500 text-center font-bold">
           Please Sign in
         </h2>

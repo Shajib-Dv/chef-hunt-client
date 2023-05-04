@@ -4,19 +4,19 @@
 
 ## Usages Package
 
-> react-icon
+- react-icon
 
-> moment js
+- moment js
 
-> tailwind css
+- tailwind css
 
-> daisy ui
+- daisy ui
 
-> firebase
+- firebase
 
-> swiper js
+- swiper js
 
-> react router
+- react router
 
 ---
 

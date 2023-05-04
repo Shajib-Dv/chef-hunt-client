@@ -110,7 +110,7 @@ const ChefsRecipes = ({ recipes }) => {
           </div>
           <div>
             <span className="text-yellow-500 font-bold">Cooking method: </span>
-            The
+            The {name}
             {cooking[0].slice(
               Math.round(Math.random() * 30),
               seeMore ? 400 : 100

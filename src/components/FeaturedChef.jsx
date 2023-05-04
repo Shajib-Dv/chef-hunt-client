@@ -48,7 +48,7 @@ const FeaturedChef = ({ chefs }) => {
                 <span className="text-yellow-500">
                   <BiDish />
                 </span>
-                <p>{recipes.length} recipes</p>
+                <p>{numRecipes} recipes</p>
               </span>
               <span className="flex items-center gap-2">
                 <span className="text-red-500">

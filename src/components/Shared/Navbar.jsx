@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="w-full backdrop-blur-md bg-transparent md:pt-10 sticky top-0 z-10">
+      <nav className="w-full bg-[rgb(0,0,0,0.5)] md:pt-10 sticky top-0 z-10">
         <div className="justify-between px-4 mx-auto md:pb-6 lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -110,7 +110,7 @@ const Navbar = () => {
                   <input
                     id="search"
                     type="text"
-                    placeholder="Search origin"
+                    placeholder="Search by country"
                     className="search w-full"
                     onChange={(e) => setSearch(e.target.value)}
                   />
@@ -119,7 +119,7 @@ const Navbar = () => {
                     to={`/origin/chefs/${search}`}
                     className="absolute right-16 h-full w-12 flex items-center justify-center md:right-5"
                   >
-                    <FaSearch className="text-black" />
+                    <FaSearch className="text-yellow-500" />
                   </Link>
                 </li>
                 <li className="text-white hover:text-yellow-500">

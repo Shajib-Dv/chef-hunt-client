@@ -19,7 +19,7 @@ body {
 }
 
 .search {
-  @apply backdrop-blur-sm bg-transparent text-white  font-semibold outline-none border-2 rounded-md px-3 py-2  w-full max-w-xs;
+  @apply bg-[rgb(0,0,0,0.5)] backdrop-blur-sm text-white  font-semibold outline-none border-2 rounded-md px-3 py-2  w-full max-w-xs;
 }
 
 .button {

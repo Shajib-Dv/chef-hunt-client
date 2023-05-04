@@ -11,8 +11,8 @@ const UserDetails = () => {
   const lastLog = new Date(parseInt(user?.metadata?.lastLoginAt));
   const createdAt = new Date(parseInt(user?.metadata?.createdAt));
   return (
-    <div className="md:w-4/5 mx-auto bg-transparent backdrop-blur-md p-4 md:p-10 my-6 md:my-20 rounded-md">
-      <div className="card lg:card-side bg-base-100 shadow-xl">
+    <div className="md:w-4/5 mx-auto bg-[rgba(0,0,0,0.5)]  p-4 md:p-10 my-6 md:my-20 rounded-md">
+      <div className="card lg:card-side bg-base-100">
         <div className="avatar flex justify-center h-64 my-6 ml-4 ">
           <div
             title={user?.displayName || "name not found"}

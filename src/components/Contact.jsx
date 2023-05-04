@@ -18,14 +18,14 @@ const Contact = () => {
     setMessage("");
     MySwal.fire({
       title: <strong>Thanks dude</strong>,
-      html: <i>We got your mail</i>,
+      html: <i>We just received your mail</i>,
       icon: "success",
     });
   };
   const handleSend = () => {};
 
   return (
-    <div className="md:w-4/5 backdrop-blur-md mx-auto px-4 py-8">
+    <div className="md:w-4/5 bg-[rgb(0,0,0,0.5)] mx-auto px-4 py-8">
       <h1 className="text-4xl text-yellow-500 font-bold mb-4">Contact Us</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">

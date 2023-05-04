@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div className="md:min-h-[calc(100vh-150px)] h-auto bg-transparent">
+      <div className="md:min-h-[calc(100vh-150px)] h-auto 2xl:w-4/5 mx-auto bg-transparent">
         <Outlet />
       </div>
       <div>
