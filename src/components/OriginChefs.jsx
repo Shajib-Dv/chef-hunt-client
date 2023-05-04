@@ -14,7 +14,7 @@ const OriginChefs = () => {
           No data found
         </h1>
       )}
-      <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="my-10 md:mx-10 2xl:w-4/5 2xl:mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {chefs && chefs.map((ch) => <FeaturedChef key={ch._id} chefs={ch} />)}
       </div>
     </>

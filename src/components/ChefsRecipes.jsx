@@ -54,7 +54,7 @@ const ingredients = [
 const ChefsRecipes = ({ recipes }) => {
   const { id, img, name } = recipes;
   const [seeMore, setSeeMore] = useState(false);
-  const rate = (Math.random() * 5).toFixed(2);
+  const rate = Math.ceil(Math.random() * 5);
   const [favorite, setFavorite] = useState(false);
   const MySwal = withReactContent(Swal);
   // handle favorite
@@ -88,7 +88,7 @@ const ChefsRecipes = ({ recipes }) => {
             <div className="flex items-center gap-2">
               <span className="flex items-center gap-2">
                 <span className="text-yellow-500">
-                  {rate < 4.5 ? <FaStarHalfAlt /> : <FaStar />}
+                  {rate < 3.5 ? <FaStarHalfAlt /> : <FaStar />}
                 </span>
                 <p>{rate}</p>
               </span>
