@@ -23,6 +23,10 @@ const SignIn = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setError("");
+    if (password.length < 6) {
+      setError("Password must six char long");
+      return;
+    }
     userSignIn(email, password)
       .then((result) => {
         console.log(result.user);
