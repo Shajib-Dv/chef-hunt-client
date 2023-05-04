@@ -4,6 +4,7 @@ import React, { useContext, useState } from "react";
 import Navbar from "./Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
@@ -12,7 +13,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [imgLink, setImgLink] = useState("");
-  const { userSignUp, navigate } = useContext(AuthContext);
+  const { userSignUp, navigate, user } = useContext(AuthContext);
   const navigator = useNavigate();
 
   const handleSubmit = (event) => {
@@ -26,6 +27,10 @@ const SignUp = () => {
         setImgLink("");
         setEmail("");
         setPassword("");
+        updateProfile(result.user, {
+          displayName: `${firstName} ${lastName}`,
+          photoURL: imgLink || null,
+        });
         navigator(navigate || "/");
       })
       .catch((error) => setPasswordError(error.message));
@@ -34,7 +39,7 @@ const SignUp = () => {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col justify-center items-center h-screen bg-transparent backdrop-blur-md">
+      <div className="flex flex-col justify-center items-center h-screen bg-[rgb(0,0,0,0.5)]">
         <h2 className="text-3xl pb-4 text-yellow-500 text-center font-bold">
           Please Sign up
         </h2>

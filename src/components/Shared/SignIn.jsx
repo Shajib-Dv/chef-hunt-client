@@ -5,12 +5,15 @@ import Navbar from "./Navbar";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGooglePlusSquare, FaGithubSquare } from "react-icons/fa";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const SignIn = () => {
+  const MySwal = withReactContent(Swal);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { userSignIn, googleSignIn, gitHubSignIn, setNavigate } =
+  const { userSignIn, googleSignIn, gitHubSignIn, setNavigate, resetPassword } =
     useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -48,6 +51,23 @@ const SignIn = () => {
       .catch((error) => console.log(error.message));
   };
 
+  const handleResetPassword = () => {
+    setError("");
+    if (!email) {
+      document.getElementById("email").focus();
+      return;
+    }
+    resetPassword(email)
+      .then((res) => {
+        MySwal.fire({
+          title: <strong>Well Done</strong>,
+          html: <i>Your Please check your mail to reset your password</i>,
+          icon: "success",
+        });
+        setEmail("");
+      })
+      .catch((error) => setError(error.message));
+  };
   return (
     <>
       <Navbar />
@@ -109,7 +129,10 @@ const SignIn = () => {
               </label>
             </div>
             <div>
-              <p className="btn-link cursor-pointer text-yellow-500">
+              <p
+                onClick={handleResetPassword}
+                className="btn-link cursor-pointer text-yellow-500"
+              >
                 Forgot password
               </p>
             </div>

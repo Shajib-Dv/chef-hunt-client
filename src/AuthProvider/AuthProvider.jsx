@@ -6,6 +6,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -49,6 +50,11 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  //reset user password
+  const resetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
+
   // user track
 
   useEffect(() => {
@@ -67,6 +73,7 @@ const AuthProvider = ({ children }) => {
     googleSignIn,
     gitHubSignIn,
     userSignIn,
+    resetPassword,
     logOut,
     loader,
     navigate,

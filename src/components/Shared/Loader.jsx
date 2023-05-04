@@ -4,7 +4,7 @@ import React from "react";
 
 const Loader = () => {
   return (
-    <div className="my-20">
+    <div className="flex flex-col space-y-10 mx-10 justify-center items-center h-screen">
       <progress
         value="40"
         max="100"
