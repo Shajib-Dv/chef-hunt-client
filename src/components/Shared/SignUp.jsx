@@ -22,6 +22,10 @@ const SignUp = () => {
   const handleSubmit = (event) => {
     setPasswordError("");
     event.preventDefault();
+    if (password.length < 6) {
+      setPasswordError("Password must be six character long");
+      return;
+    }
     userSignUp(email, password)
       .then((result) => {
         // console.log(result.user);
