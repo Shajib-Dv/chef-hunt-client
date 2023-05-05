@@ -6,6 +6,7 @@ import { Link, Navigate } from "react-router-dom";
 import LazyLoad from "react-lazy-load";
 import ActiveLink from "../ActiveLink";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
@@ -191,6 +192,7 @@ const Navbar = () => {
             )}
           </div>
         </div>
+        <ToastContainer />
       </nav>
     </>
   );

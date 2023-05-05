@@ -4,6 +4,8 @@ import React from "react";
 import { BsFillTrophyFill, BsFillSuitHeartFill } from "react-icons/bs";
 import { BiDish, BiGlasses } from "react-icons/bi";
 import LazyLoad from "react-lazy-load";
+import RelaxLotti from "../../public/relax.json";
+import Lottie from "lottie-react";
 
 const ChefDetails = ({ chef }) => {
   const {
@@ -19,7 +21,7 @@ const ChefDetails = ({ chef }) => {
   } = chef;
   return (
     <>
-      {chef && (
+      {chef._id ? (
         <div className="card  card-compact md:h-1/2 lg:h-[600px] md:w-1/2 mx-auto bg-base-100 shadow-xl">
           <div className="avatar flex justify-center">
             <div className="w-64 mt-4 rounded-full">
@@ -73,6 +75,13 @@ const ChefDetails = ({ chef }) => {
               cooking.
             </p>
           </div>
+        </div>
+      ) : (
+        <div>
+          <h1 className="text-3xl text-center text-red-600 font-bold py-0">
+            There is no data for this route
+          </h1>
+          <Lottie animationData={RelaxLotti} loop={true} />
         </div>
       )}
     </>

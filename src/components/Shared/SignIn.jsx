@@ -3,10 +3,13 @@
 import React, { useContext, useState } from "react";
 import Navbar from "./Navbar";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaGooglePlusSquare, FaGithubSquare } from "react-icons/fa";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import Footer from "./Footer";
 
 const SignIn = () => {
   const MySwal = withReactContent(Swal);
@@ -59,6 +62,7 @@ const SignIn = () => {
     setError("");
     if (!email) {
       document.getElementById("email").focus();
+      toast("Please provide your email");
       return;
     }
     resetPassword(email)
@@ -75,14 +79,13 @@ const SignIn = () => {
   return (
     <>
       <Navbar />
-
-      <div className="flex flex-col mt-10 md:mt-0 md:justify-center md:items-center  h-screen bg-[rgb(0,0,0,0.5)]">
+      <div className="flex flex-col md:py-20 justify-center items-center h-screen bg-[rgb(0,0,0,0.5)]">
         <h2 className="text-3xl pb-4 text-yellow-500 text-center font-bold">
           Please Sign in
         </h2>
         <form
           onSubmit={handleSubmit}
-          className="bg-white md:w-1/2 shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          className="bg-white w-full md:w-1/2 shadow-md rounded px-8 pt-4 pb-4 mb-4"
         >
           <div className="mb-4">
             <label
@@ -161,28 +164,28 @@ const SignIn = () => {
           </div>
           {/* google and github sign in */}
           <hr className="my-4  border-sky-100 border" />
-          <div className="pt-4 space-y-2">
+          <p className="text-gray-600 text-center text-2xl font-bold">
+            Sign in with
+          </p>
+          <hr className="my-4  border-sky-100 border" />
+          <div className="pt-4 flex justify-center items-center gap-4">
             <button
               onClick={signInWithGoogle}
-              className="button justify-center gap-4 w-full"
+              className="bg-[rgb(0,0,0,0.8)] w-14 h-14 flex items-center justify-center  rounded-full "
             >
-              <span className="text-2xl">
-                <FaGooglePlusSquare />
-              </span>
-              Sign in with google
+              <FaGoogle className="text-3xl text-yellow-500" />
             </button>
+            <span className="text-2xl">or</span>
             <button
               onClick={signInWithGithub}
-              className="button justify-center gap-4 w-full"
+              className="bg-[rgb(0,0,0,0.8)] w-14 h-14 flex items-center justify-center  rounded-full "
             >
-              <span className="text-2xl">
-                <FaGithubSquare />
-              </span>
-              Sign in with github
+              <FaGithub className="text-3xl text-yellow-500" />
             </button>
           </div>
         </form>
       </div>
+      <Footer />
     </>
   );
 };

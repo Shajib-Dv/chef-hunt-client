@@ -4,12 +4,16 @@ import React, { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import moment from "moment";
 import LazyLoad from "react-lazy-load";
+import Loader from "./Shared/Loader";
 
 const UserDetails = () => {
   const { user } = useContext(AuthContext);
 
   const lastLog = new Date(parseInt(user?.metadata?.lastLoginAt));
   const createdAt = new Date(parseInt(user?.metadata?.createdAt));
+  if (!user) {
+    return <Loader />;
+  }
   return (
     <div className="md:w-4/5 mx-auto bg-[rgba(0,0,0,0.5)]  p-4 md:p-10 my-6 md:my-20 rounded-md">
       <div className="card lg:card-side bg-base-100">
